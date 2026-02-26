@@ -4,6 +4,8 @@ public class SpotifyTester {
 
     public static final int SORT_ARTIST_AZ = 1;
     public static final int SORT_ARTIST_ZA = 2;
+    public static final int SORT_OLD_NEW = 3;
+    public static final int SORT_NEW_OLD = 4;
     public static final int SEARCH_GENRE = 5;
     public static final int DISPLAY = 6;
     public static final int QUIT = 7;
@@ -11,7 +13,7 @@ public class SpotifyTester {
     public static void main(String[] args) {
 
         Playlist playlist = new Playlist();
-        playlist.readFile("C:\\AbrarCSA\\spotify_unique_years_artists.txt");
+        playlist.readFile("H:\\M359 Ahmed Khan\\unit4b\\u4b-lab-spotify-abrar-ahmedk\\U4BLab\\spotify_unique_years_artists.txt");
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -26,7 +28,7 @@ public class SpotifyTester {
                 choice = Integer.parseInt(keyboard.nextLine());
             } catch (Exception e) {
                 System.out.println("Invalid Input. Please enter a number between 1 and 7.");
-                continue;
+
             }
 
             if (choice == SORT_ARTIST_AZ) {
@@ -44,6 +46,16 @@ public class SpotifyTester {
                 System.out.print("Enter genre: ");
                 String genre = keyboard.nextLine();
                 playlist.searchGenre(genre);
+            }
+            else if (choice == SORT_OLD_NEW) {
+                playlist.sortYearOldNew();
+                System.out.println("3- Sort by year (oldest -newest)");
+                playlist.displayAll();
+            }
+            else if (choice == SORT_NEW_OLD) {
+                playlist.sortYearNewOld();
+                System.out.println("4- Sort by year (newest -oldest)");
+                playlist.displayAll();
             }
             else if (choice == DISPLAY) {
                 playlist.displayAll();
@@ -63,8 +75,8 @@ public class SpotifyTester {
         System.out.println("\n=== Spotify Menu ===");
         System.out.println("1- Sort by artist (A -> Z)");
         System.out.println("2- Sort by artist (Z -> A)");
-       // System.out.println("3- Sort by year (oldest -newest)");
-       // System.out.println("4- Sort by year (newest -oldest)");
+        System.out.println("3- Sort by year (oldest -newest)");
+        System.out.println("4- Sort by year (newest -oldest)");
         System.out.println("5- Search by genre");
         System.out.println("6- Display all songs");
         System.out.println("7- Quit");

@@ -86,7 +86,27 @@ public class Playlist {
             songs.set(songs.size() - 1 - i, temp);
         }
     }
+    public void sortYearOldNew() {
+        for(int i = 1; i < songs.size(); i++) {
+            Song key = songs.get(i);
+            int j = i - 1;
 
 
+            while(j >= 0 && songs.get(j).getYear() > key.getYear()) {
+                songs.set(j + 1, songs.get(j));
+                j--;
+            }
+            songs.set(j + 1, key);
+        }
+    }
+    public void sortYearNewOld() {
+        sortYearOldNew();   // sort Old-New
 
-}
+        // reverse
+        for (int i = 0; i < songs.size() / 2; i++) {
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(songs.size() - 1 - i));
+            songs.set(songs.size() - 1 - i, temp);
+        }
+    }
+    }
