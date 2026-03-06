@@ -19,6 +19,20 @@ public class Song {
         genre = gen;
     }
 
+
+    // Setter methods
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     // Getter method to return artist name
     public String getArtist() {
         return artist;
